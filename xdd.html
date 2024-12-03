@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternador de Dashboards</title>
+    <script>
+        const dashboards = [
+            "https://app.powerbi.com/view?r=dashboard1",
+            "https://app.powerbi.com/view?r=dashboard2",
+            "https://app.powerbi.com/view?r=dashboard3"
+        ];
+
+        const interval = 5000;
+        let currentIndex = 0;
+
+        function switchDashboard() {
+            currentIndex = (currentIndex + 1) % dashboards.length;
+            document.getElementById("dashboardFrame").src = dashboards[currentIndex];
+        }
+
+        setInterval(switchDashboard, interval);
+    </script>
+</head>
+<body>
+    <iframe id="dashboardFrame" src="https://app.powerbi.com/view?r=dashboard1" 
+        style="width: 100vw; height: 100vh; border: none;"></iframe>
+</body>
+</html>
